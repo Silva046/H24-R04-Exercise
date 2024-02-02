@@ -7,7 +7,7 @@ import csv
 # Dans le fichier "Ex5 Stages.csv", vous avez une liste de stages en programmation et en TI
 # Vous voulez extraire les stages de TI et les mettres dans un nouveau fichier spécifique aux stages de TI
 user = os.environ.get("USERPROFILE")
-os.chdir(f"{user}/Documents\programmation 2\R03 Exercices_vincent_baccichet\csvs")
+os.chdir(f"csvs")
  
 
 # Regardez le contenu du fichier "Ex5 Stages.csv"
@@ -22,16 +22,26 @@ os.chdir(f"{user}/Documents\programmation 2\R03 Exercices_vincent_baccichet\csvs
 #  Des instructions détaillées sont données plus bas
 with open('Ex5 Stages.csv' , encoding='utf-8') as csv_file :
     csv_reader = csv.reader(csv_file , delimiter='|')
-    next(csv_reader)
-    for line in csv_reader :
-        if line[2] in ['TI'] :
-            liste_TI = print(line)
-with open("Ex5 Stages TI.csv" , "w" , encoding='utf-8') as csv_file :
-    csv_writer = csv.writer(csv_file , delimiter='|' , lineterminator='\n')
-    csv_writer.writerow(["Compagnie" , "Ville" , "Voie de sortie"])
-    for line in csv_reader :
-        if line[2] in ['TI'] :
-            csv_writer.writerow(line)
+    with open("Ex5 Stages TI.csv", "w" , encoding='utf-8') as csv_file :
+        csv_file_writer = csv.writer(csv_file , delimiter='|' , lineterminator='\n')
+        csv_file_writer.writerow(["Compagnie" , "Ville" , "Voie de sortie"])
+        next(csv_reader)
+        for line in csv_reader :
+            if line[2] in ['TI'] :
+                liste_TI = print(line)
+                csv_file_writer.writerow(line)
+
+
+
+
+
+
+#with open("Ex5 Stages TI.csv" , "w" , encoding='utf-8') as csv_file :
+ #   csv_writer = csv.writer(csv_file , delimiter='|' , lineterminator='\n')
+  #  csv_writer.writerow(["Compagnie" , "Ville" , "Voie de sortie"])
+   # for line in csv_reader :
+    #    if line[2] in ['TI'] :
+     #       csv_writer.writerow(line)
 
 
 
