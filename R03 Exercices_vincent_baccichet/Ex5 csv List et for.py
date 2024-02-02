@@ -6,7 +6,7 @@ import csv
 
 # Dans le fichier "Ex5 Stages.csv", vous avez une liste de stages en programmation et en TI
 # Vous voulez extraire les stages de TI et les mettres dans un nouveau fichier spécifique aux stages de TI
-user = os.environ.get("USERPROFILE")
+
 os.chdir(f"csvs")
  
 
