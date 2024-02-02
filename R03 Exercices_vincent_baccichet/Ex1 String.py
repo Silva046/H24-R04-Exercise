@@ -1,4 +1,5 @@
 #Q1
+#Alloooo
 #  Voici une chaine de caractères qui ressemble à une ligne de données que vous auriez extraite d'un fichier text
 ligne_donnees = " AMD Ryzen 9 5900X ;  AMD Ryzen 7 5800X3 ;  Intel Core i9 12900 K    " 
 #  Vous devez dans un premier temps séparer les données sur le caractère qui les séparent ( le ';' ici ) avec la méthode .split
