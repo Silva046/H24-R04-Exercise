@@ -1,0 +1,5 @@
+-Janvier 2022
+	Passe mensuelle: 120
+	Sortie cinéma: 60
+	Abonnement cellulaire: 135
+	Cafétaria: 160
