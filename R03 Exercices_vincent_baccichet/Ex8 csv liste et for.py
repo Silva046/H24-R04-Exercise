@@ -1,9 +1,9 @@
 import os                             # N'enlevez pas ces lignes.
 os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans le répertoire de ce script
-
+os.chdir("csvs")
 # Importez csv
 
-
+import csv
  
 
 # Vous utiliserez encore le fichier "Ex7 Lan Party.csv"
@@ -18,7 +18,24 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 
 #         Si besoin, des instructions détaillées sont données plus bas
 
+games = []
 
+with open("Ex7 Lan Party.csv" , encoding='utf-8') as csv_file :
+    csv_reader = csv.reader(csv_file , delimiter=';') 
+    next(csv_reader)
+    for line in csv_reader :
+        game = line[1:3]
+        if game not in games : 
+            games.append(game)
+games.sort()
+
+print("list of unique games played: ")
+for game in games :
+    print(game)
+
+
+                
+                
 
 
 
