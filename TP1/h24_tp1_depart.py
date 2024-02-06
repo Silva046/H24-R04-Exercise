@@ -30,8 +30,9 @@ liste_etudiants = []
 
 with open("resultats_evaluation.csv" , encoding='utf-8') as csv_file :
     csv_reader = csv.reader(csv_file , delimiter=';')
-    next(csv_reader)
-    next(csv_reader)
+    for i in range(2) : next(csv_reader)
+    #next(csv_reader)
+    #next(csv_reader)
     for line in csv_reader :
         note = line[3:]
         identifiant = [line[0]]
