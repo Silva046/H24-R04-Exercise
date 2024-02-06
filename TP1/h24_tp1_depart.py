@@ -2,8 +2,8 @@ import os
 import csv
 os.chdir(os.path.dirname(__file__)) # Cette ligne fait que l'exécution du script aura toujours lieu dans le répertoire où il se trouve.
 
-NOM_ÉTUDIANT = "nom, prénom" # Écrivez votre nom et prénom ici
-GROUPE_ÉTUDIANT = ""         # Écrivez votre groupe ici.
+NOM_ÉTUDIANT = "Baccichet, Vincent" # Écrivez votre nom et prénom ici
+GROUPE_ÉTUDIANT = "1080"         # Écrivez votre groupe ici.
 
 
 
@@ -28,7 +28,16 @@ GROUPE_ÉTUDIANT = ""         # Écrivez votre groupe ici.
 
 liste_etudiants = []
 
-
+with open("resultats_evaluation.csv" , encoding='utf-8') as csv_file :
+    csv_reader = csv.reader(csv_file , delimiter=';')
+    next(csv_reader)
+    next(csv_reader)
+    for line in csv_reader :
+        note = line[3:]
+        identifiant = [line[0]]
+        identifiant.extend(note)
+        liste_etudiants.append(identifiant)
+print(liste_etudiants)
 
 
 
@@ -54,6 +63,9 @@ liste_etudiants = []
 #           - La moyenne de ces étudiants
 #           - La moyenne de tous les étudiants
 #           - Le taux de succès au cours (pourcentage d'étudiants ayant passé)
+tp = liste_etudiants[1:6]
+exam = liste_etudiants[6:]
+
 
 
 
