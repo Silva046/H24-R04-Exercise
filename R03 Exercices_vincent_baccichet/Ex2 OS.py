@@ -1,6 +1,6 @@
 import os
 os.chdir(os.path.dirname(__file__))
-
+#alloooooo
 # Q1  imprimez le répertoire courant
 print(f"Q1{'_'*60}")
 print(os.getcwd())
