@@ -18,20 +18,18 @@ import csv
 
 #         Si besoin, des instructions détaillées sont données plus bas
 
-games = []
+liste_des_jeux = []
 
 with open("Ex7 Lan Party.csv" , encoding='utf-8') as csv_file :
     csv_reader = csv.reader(csv_file , delimiter=';') 
     next(csv_reader)
     for line in csv_reader :
-        game = line[1:3]
-        if game not in games : 
-            games.append(game)
-games.sort()
+        for jeu in line[1:] :
+            if jeu not in liste_des_jeux :
+                liste_des_jeux.append(jeu)
+liste_des_jeux.sort()
 
-print("list of unique games played: ")
-for game in games :
-    print(game)
+print(f"les jeux disponibles sont : {liste_des_jeux}")
 
 
                 

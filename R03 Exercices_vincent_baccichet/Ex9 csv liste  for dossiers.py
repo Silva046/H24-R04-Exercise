@@ -1,8 +1,8 @@
 import os                             # N'enlevez pas ces lignes.
 os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans le répertoire de ce script
-
+os.chdir("csvs")
 # Importez csv
-
+import csv
 
  
 
@@ -14,6 +14,18 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 #         ATTENTION: Pour le nom de chaque jeu: changez le ':' pour un '_' et gardez juste les 20 premiers caractères
 
 #         Si besoin, des instructions détaillées sont données plus bas
+
+
+with open("Ex7 Lan Party.csv" , encoding='utf-8') as csv_file :
+    csv_reader = csv.reader(csv_file , delimiter=';')
+    next(csv_reader)
+    for line in csv_reader :
+        lan_party = line[0]
+        for jeu in line[1:] :
+            nom_jeu = jeu.replace(":","_")
+            os.makedirs(f"lan/{lan_party}/{nom_jeu[:20]}/", exist_ok=True) 
+
+
 
 
 

@@ -22,7 +22,7 @@ with open("Ex7 Lan Party.csv" , encoding='utf-8') as csv_file :
         csv_writer.writerow(["Lan Party" , "Top 1" , "Top 2" , "Top 3"])
         next(csv_reader)
         for line in csv_reader :
-            if line[1] in ["Valorant"] or line[2] in ["Valorant"] or line[3] in ["Valorant"] :
+            if "Valorant" in line:
                 csv_writer.writerow(line)
         
 
