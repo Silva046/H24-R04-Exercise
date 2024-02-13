@@ -1,5 +1,6 @@
 import os                             # N'enlevez pas ces lignes.
 os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans le répertoire de ce script
+import csv
 #
 # Le fichier Ex2_Depenses_Janvier.txt contient les dépenses faites en janvier de 2022
 #       -Janvier
@@ -19,7 +20,16 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 # Si vous êtes ok, allez-y
 # Si vous en ressentez le besoin, il y a des explications plus détaillées dans le bas de ce document
 
-
+total = 0
+with open("Ex2_Depenses_Janvier.txt" , encoding='utf-8') as csv_file :
+    csv_reader = csv.reader(csv_file , delimiter=':')
+    next(csv_reader)
+    for line in csv_reader :
+            total += int(line[-1])
+Ex2_Total_Janvier = open("Ex2_Total_Janvier.txt" , "w" , encoding='utf-8')
+Ex2_Total_Janvier.writelines(["MOIS      TOTAL" , "\n"])
+Ex2_Total_Janvier.writelines(f"Janvier      {total}")
+Ex2_Total_Janvier.close()
 
 
 
