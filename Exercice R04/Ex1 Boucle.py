@@ -1,7 +1,7 @@
 import os                             # N'enlevez pas ces lignes.
 os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans le répertoire de ce script
 
-
+import csv
 # Vous avez mis des vidéos sur youtube et vous avez noté, pour chaque vidéo, le nombre de likes des 7 premiers jours de chacun des vidéos
 # Ces données sont dans le fichier Ex1_youtube_Nb_Likes.txt
 
@@ -14,11 +14,14 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 # Observez le contenu du fichier txt et notez le caractère spécial qui sépare les données
 # Si vous êtes fort en programmation, faites le code maintenant
 # Si vous avez besoin de plus d'explications, vous pourrez les trouver plus bas dans cet exercice
-
-
-
-
-
+total_likes = 0
+nb_video = 0
+with open("Ex1_youtube_nb_Likes.txt" , encoding='utf-8') as csv_file :
+    csv_reader = csv.reader(csv_file, delimiter='|')
+    for line in csv_reader :
+        total_likes += int(line[-1])
+        nb_video = csv_reader.line_num
+print(f"J'ai eu un total de {total_likes} likes pour mes {nb_video} vidéos")
 
 
 
