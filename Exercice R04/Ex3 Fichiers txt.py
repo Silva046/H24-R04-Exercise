@@ -2,7 +2,7 @@ import os                             # N'enlevez pas ces lignes.
 os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans le répertoire de ce script
 
 # import csv package #
-
+import csv
 
 
 
@@ -18,7 +18,16 @@ os.chdir(os.path.dirname(__file__))   # Elles permettent de se positionner dans 
 #   - ouvrir en écriture un nouveau fichier que vous appellerez contributeursPublics.csv
 #   - Avec une boucle for, vous allez lire chaque ligne du premier fichier pour ensuite l'écrire dans le deuxième fichier
 #     MAIS vous allez arrêter la copie quand au lieu du nom d'une personne, vous aurez 'Pas de publication'
-
+with open("Ex3_contributeursNomPrenom.csv" , encoding='utf-8') as csv_file :
+    csv_reader = csv.reader(csv_file , delimiter=',')
+    next(csv_reader)
+    with open("Contributeurs_Nom_Prénom" , "w" , encoding='utf-8') as csv_file_writer :
+        csv_writer = csv.writer(csv_file_writer , delimiter=',' , lineterminator="\n")
+        for line in csv_reader :
+            if "Pas de publication" in line[0] :
+                break 
+            else :
+                csv_writer.writerow(line)
 
 
 

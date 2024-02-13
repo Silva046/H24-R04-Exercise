@@ -14,7 +14,6 @@ import csv
 #        MOIS     TOTAL 
 #       -Janvier    475
 #       
-
 # Observez que le mois commence par le caractère '-' dans le fichier de départ et que chaque ligne se termine par un saut de ligne "\n"
 # Vous devrez utiliser une boucle for pour calculer le total des dépenses du mois et les imprimer de façon à obtenir le résultat attendu
 # Si vous êtes ok, allez-y
