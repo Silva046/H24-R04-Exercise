@@ -30,9 +30,8 @@ print(f"Q2{80*'_'}")
 message = "Q2: Voici la liste des clients: "
 for personne in donnees_json :
     message += f"{personne['prenom']} {personne['nom']}, "
-
-
 print(message[0:-2])
+
 print(f"Q3{80*'_'}")
 # Q3: Je veux avoir le solde moyen de mes clients
 # Maintenant, disons qu'on veut avoir le nombre de clients, on sait qu'on là avec len
