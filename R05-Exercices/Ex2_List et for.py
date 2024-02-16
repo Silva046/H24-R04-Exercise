@@ -115,7 +115,7 @@ print(f"Voici la liste des chiffres entre 300 et 800 : {liste_entre_300_800}")
 print(f"Q7{80*'_'}")
 
 total = 0
-
 for chiffre in liste_entre_300_800 :
     total += chiffre
-print(total)
+moyenne = total / len(liste_entre_300_800)
+print(f"Il y a dans la liste {len(liste_entre_300_800)} entre 300 et 800, pour un total de {total}. La moyenne de ces chiffres est de {round(moyenne)}")
