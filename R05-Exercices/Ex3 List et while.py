@@ -24,6 +24,26 @@
 # Sinon, continuez à demander un nombre entre 400 et 800 en affichant le message suivant: 
 #                          "Vous avez entré X. On a besoin de 5 nombres entre 400 et 800. SVP recommencez." #
 
+total = 0
+cpt = 0
+
+while cpt < 5 :
+    
+    nb_input = int(input("entrez un chiffre entre 400 et 800 : "))
+
+    if 400 <= nb_input <= 800 :
+        print(f"Merci d'avoir entré le chiffre {nb_input}, qui est entre 400 et 800 comme demandé")
+        cpt += 1
+        total += nb_input
+    else :
+        print(f"Vous avez entré {nb_input}. On a besoin de 5 nombres entre 400 et 800. SVP recommencez")
+
+moyenne = total / cpt
+
+print(f"Le total des chiffres entrés est de {total}")
+print(f"La moyenne de ces chiffres est de {moyenne}")
+
+
 
 
 
