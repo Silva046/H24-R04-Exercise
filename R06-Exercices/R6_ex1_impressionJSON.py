@@ -13,7 +13,7 @@ donnees_clients = [{'city': 'San Antonio', 'street': 'Hunters Creek Dr', 'number
 
 # Q0 : importez le module json
 
-
+import json
 
 print(f"Q1{'_'*60}")
 #Q1 : 
@@ -21,7 +21,8 @@ print(f"Q1{'_'*60}")
 # Imprimez à nouveau cette liste, mais cette fois-ci de facons à ce qu'elle soit facilement lisible par l'être humain
 #       vous devez utiliser le module json, la fonction dumps, et le paramètre indent
 
-
+print(donnees_clients)
+print(json.dumps(donnees_clients , indent=1))
 
 
 
@@ -32,7 +33,9 @@ print(f"Q2{'_'*60}")
 # Notez bien qu'il ne s'agit pas d'un csv. Vous devez utilisé les méthode .write() ou writelines()
 
 with open("R6_ex_q2.json", "w", encoding="utf-8") as fichier_ecrire :
+    fichier_ecrire.writelines(json.dumps(donnees_clients[0] , indent=1))
     pass
+
 
 
 print(f"Q3{'_'*60}")
@@ -45,7 +48,7 @@ print(f"Q3{'_'*60}")
 #               par ex le premier client serait : "addresse" : 'San Antonio, 6454 Hunters Creek Dr, 98234-1734'
 #               je conseil d'utiliser un f-string ici
 
-
+client_dictionnaire = {'id' : '1' , 'name': {'firstname': 'don', 'lastname': 'romer'}}
 
 print(f"Q4{'_'*60}")
 #Q4 : 
