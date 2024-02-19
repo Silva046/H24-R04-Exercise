@@ -48,8 +48,10 @@ print(f"Q3{'_'*60}")
 #               par ex le premier client serait : "addresse" : 'San Antonio, 6454 Hunters Creek Dr, 98234-1734'
 #               je conseil d'utiliser un f-string ici
 
-client_dictionnaire = {'id' : '1' , 'name': {'firstname': 'don', 'lastname': 'romer'}}
-
+client_dictionnaire = {'id' : '1' , 'name': {'firstname': 'don', 'lastname': 'romer'} , 'addresse' : {f"{donnees_clients[0]['city'] , donnees_clients[0]['number'], donnees_clients[0]['zipcode']}"}}
+print(client_dictionnaire)
+with open("clients_simplifiés" , "w" , encoding='utf-8') as file :
+    file.writelines(client_dictionnaire)
 print(f"Q4{'_'*60}")
 #Q4 : 
 # Enregistrez cette nouvelle liste de dictionnaires dans un fichier nommé : "clients_simplifiés"
