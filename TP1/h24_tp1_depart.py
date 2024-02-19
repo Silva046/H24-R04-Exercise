@@ -27,6 +27,8 @@ GROUPE_ÉTUDIANT = "1080"         # Écrivez votre groupe ici.
 # MAIS, nous n'avons pas besoin du nom de l'étudiant ou du programme.
 
 liste_etudiants = []
+liste_tp = []
+liste_examen =[]
 
 with open("resultats_evaluation.csv" , encoding='utf-8') as csv_file :
     csv_reader = csv.reader(csv_file , delimiter=';')
@@ -34,12 +36,17 @@ with open("resultats_evaluation.csv" , encoding='utf-8') as csv_file :
     #next(csv_reader)
     #next(csv_reader)
     for line in csv_reader :
-        note = line[3:]
+        note_tp = line[3:8]
+        note_examen = line[8:]
         identifiant = [line[0]]
-        identifiant.extend(note)
+        identifiant.extend(note_tp)
+        identifiant.extend(note_examen)
         liste_etudiants.append(identifiant)
-print(liste_etudiants)
+        liste_tp.append(note_tp)
+        liste_examen.append(note_examen)
 
+print(liste_tp)
+print(liste_examen)
 
 
 
@@ -64,11 +71,16 @@ print(liste_etudiants)
 #           - La moyenne de ces étudiants
 #           - La moyenne de tous les étudiants
 #           - Le taux de succès au cours (pourcentage d'étudiants ayant passé)
-tp = liste_etudiants[1:6]
-exam = liste_etudiants[6:]
+
+cpt = 0
+total_tp = 0
+total_examen = 0
+
+for note in liste_tp :
+    moyenne_tp = int(sum(note))
 
 
-
+print(moyenne_tp)
 
 
 
