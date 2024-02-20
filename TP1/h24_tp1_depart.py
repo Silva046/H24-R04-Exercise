@@ -42,11 +42,8 @@ with open("resultats_evaluation.csv" , encoding='utf-8') as csv_file :
         identifiant.extend(note_tp)
         identifiant.extend(note_examen)
         liste_etudiants.append(identifiant)
-        liste_tp.append(note_tp)
-        liste_examen.append(note_examen)
 
-print(liste_tp)
-print(liste_examen)
+
 
 
 
@@ -72,15 +69,28 @@ print(liste_examen)
 #           - La moyenne de tous les étudiants
 #           - Le taux de succès au cours (pourcentage d'étudiants ayant passé)
 
-cpt = 0
-total_tp = 0
-total_examen = 0
 
-for note in liste_tp :
-    moyenne_tp = int(sum(note))
+passation = 0
+pas_passe = 0
+#première boucle pour rentrer dans la liste
+for scores_etudiants in liste_etudiants :
+    total_tp = 0
+    total_examen = 0
+#deuxième boucle pour rentrer dans les sous-listes de la liste : liste_etudiants
+    for note_tp in scores_etudiants[1:6] :
+        total_tp += int(note_tp) / 5
+#troisième boucle pour les examens
+    for note_examen in scores_etudiants[6:9] :
+        total_examen += int(note_examen) / 3
+#test pour incrémenter la valeur passation, pour savoir le nombre de personne qui ont passé le cours
+    if total_tp >= 60 and total_examen >= 60 :
+        passation += 1
 
 
-print(moyenne_tp)
+
+
+
+
 
 
 
