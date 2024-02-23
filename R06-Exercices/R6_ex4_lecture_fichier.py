@@ -27,7 +27,9 @@ list_id_duplicata = []
 
 
 # squelette du code pour vous aidez à commencer. Vous pouvez le modifier autant que vous voulez et n'etes pas obligner de l'utiliser :
-fichier_a_ouvrir = "gr2010.json"
+fichier1 = "gr2010.json"
+fichier2 = "gr2060.json"
+fichier3 = "gr3460.json"
 def fonction(nom_fichier): # cette fonction doit prendre un nom de fichier en paramètres
     global list_id
     global list_id_duplicata
@@ -48,7 +50,9 @@ def fonction(nom_fichier): # cette fonction doit prendre un nom de fichier en pa
     # imprimer les IDs ayant des duplicata
         print(list_id_duplicata)
 
-fonction(fichier_a_ouvrir)
+fonction(fichier1)
+fonction(fichier2)
+fonction(fichier3)
 
 
 
