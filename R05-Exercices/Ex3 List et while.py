@@ -37,12 +37,19 @@ while cpt < 5 :
         total += nb_input
     else :
         print(f"Vous avez entré {nb_input}. On a besoin de 5 nombres entre 400 et 800. SVP recommencez")
-
+print("Merci d'avoir rentré ta mère la grosse pute")
 moyenne = total / cpt
 
 print(f"Le total des chiffres entrés est de {total}")
 print(f"La moyenne de ces chiffres est de {moyenne}")
-
+print("...")
+print("...")
+print("...")
+print("...")
+print("...")
+print("...")
+print("...")
+print(f"btw a pèse {total * 10} kgs")
 
 
 

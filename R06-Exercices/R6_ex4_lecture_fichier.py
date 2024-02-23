@@ -10,7 +10,7 @@ os.chdir(os.path.dirname(__file__)) # place la console dans le même répertoire
 #       Une liste recevra tous les IDs depuis les fichiers json
 #       L''autre liste recevra les IDs ayant des duplicata
 
-#faites un fonction qui :   1- Prends un nom de fichier en paramètre,
+#faites une fonction qui :   1- Prends un nom de fichier en paramètre,
 #                           2- Ouvre le fichier json du même nom
 #                           3- Convertie le contenue du fichier liste de dictionnaires
 #                           3- Qui vérifie que l'ID n'existe pas déja dans la liste d'ID
@@ -27,11 +27,11 @@ list_id_duplicata = []
 
 
 # squelette du code pour vous aidez à commencer. Vous pouvez le modifier autant que vous voulez et n'etes pas obligner de l'utiliser :
-nom_fichier = "gr2010.json"
-def fonction(): # cette fonction doit prendre un nom de fichier en paramètres
-    list_id = []
-    list_id_duplicata = []
-    with open("","r") as fichier : # open doit prendre un nom de fichier en paramètres
+fichier_a_ouvrir = "gr2010.json"
+def fonction(nom_fichier): # cette fonction doit prendre un nom de fichier en paramètres
+    global list_id
+    global list_id_duplicata
+    with open(nom_fichier,"r") as fichier : # open doit prendre un nom de fichier en paramètres
         
         # lire le contenue du fichier avec .read() et le mets dans une variable sous forme str
         # convertire la chaine de carachtères en liste de dictionnaires avec json.loads() et mettre dans une variable
@@ -40,8 +40,15 @@ def fonction(): # cette fonction doit prendre un nom de fichier en paramètres
     #passer a travers chacun des dictionnaires
     # si l'ID n'extiste pas dans list_id --> l'ajouter à list_id
     # sinon l'ajouter à list_id_duplicata 
-
+        for personne in data :
+            if personne['ID'] not in list_id :
+                list_id.append(personne['ID'])
+            else :
+                list_id_duplicata.append(personne['ID'])
     # imprimer les IDs ayant des duplicata
+        print(list_id_duplicata)
+
+fonction(fichier_a_ouvrir)
 
 
 

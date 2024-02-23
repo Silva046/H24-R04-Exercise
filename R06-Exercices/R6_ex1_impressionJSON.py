@@ -49,8 +49,8 @@ print(f"Q3{'_'*60}")
 #               je conseil d'utiliser un f-string ici
 
 client_dictionnaire = [{'id' : '1' , 'name': {'firstname': 'don', 'lastname': 'romer'} , 'addresse' : f"{donnees_clients[0]['city'] , donnees_clients[0]['number'], donnees_clients[0]['zipcode']}"},
-                       {'id' : '1' , 'name': {'firstname':'derek', 'lastname':'powell'} , 'addresse' : f"{donnees_clients[1]['city'] , donnees_clients[1]['number'], donnees_clients[1]['zipcode']}"},
-                       {'id' : '1' , 'name': {'firstname':'david','lastname':'russell'} , 'addresse' : f"{donnees_clients[2]['city'] , donnees_clients[2]['number'], donnees_clients[2]['zipcode']}"}]
+                       {'id' : '2' , 'name': {'firstname':'derek', 'lastname':'powell'} , 'addresse' : f"{donnees_clients[1]['city'] , donnees_clients[1]['number'], donnees_clients[1]['zipcode']}"},
+                       {'id' : '3' , 'name': {'firstname':'david','lastname':'russell'} , 'addresse' : f"{donnees_clients[2]['city'] , donnees_clients[2]['number'], donnees_clients[2]['zipcode']}"}]
 print(client_dictionnaire)
 with open("clients_simplifiés" , "w" , encoding='utf-8') as file :
     file.write(json.dumps(client_dictionnaire))
