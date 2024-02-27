@@ -62,10 +62,12 @@ with open("resultats_evaluation.csv" , encoding='utf-8') as csv_file :
 #           - La moyenne de ces 10 étudiants
 #           - La moyenne de tous les étudiants
 #           - Le taux de succès au cours (pourcentage d'étudiants ayant passé)
-
-dictionnaire_etudiants_final = []
+dictionnaire_etudiant = []
 passation = 0
 pas_passe = 0
+note_final_passe = 0
+note_final_pas_passe = 0
+moyenne_final_tout = 0
 #première boucle pour rentrer dans la liste
 for etudiants in liste_etudiants :
     moyenne_tp = 0
@@ -80,6 +82,8 @@ for etudiants in liste_etudiants :
 #test pour incrémenter la valeur passation et la valur pas_passe, pour savoir le nombre de personne qui ont passé le cours et qui ne l'ont pas passé
     if moyenne_tp >= 60 and moyenne_examen >= 60 :
         passation += 1
+        note_final_passe += ((moyenne_examen + moyenne_tp) / 2)
+        moyenne_etudiant_passe = note_final_passe /passation
     else:
         pas_passe += 1
 #test pouur savoir si il passe dans la section examen et TP
@@ -99,12 +103,15 @@ for etudiants in liste_etudiants :
         echec_succes = "échec"
 #calcul pour le taux de succès de la classe 
     taux_succes = (passation * 100) / (pas_passe + passation)
+#calcul de la moyenne de tout les étudiants
+    moyenne_final_tout += note_final
 #création du dictionnaire (dictionnaire_etudiants) et l'ajout de toute les données dans un dictionnaire fix (dictionnaire_etudiants_final)
-    dictionnaire_etudiants = [{f"{etudiants[0]} , {round(note_final)} , {echec_succes}"}]
-    dictionnaire_etudiants_final.append(dictionnaire_etudiants)
+    dictionnaire_etudiant.append({"id":{etudiants[0]},"note":{round(note_final,2)},"réussite":{echec_succes}}) 
 
-
-
+print(f"Voici le nombre d'étudiants ayant passés : {passation}")
+print(f"Voici la moyenne des étudiants qui ont passées : {round(moyenne_etudiant_passe , 2)}")
+print(f"voici la moyenne de tout les étudiants : {round(moyenne_final_tout / (passation + pas_passe) , 2)}")
+print(f"Voici le taux de succès de la classe : {round(taux_succes , 2)}")
 
 ###################################################################
 ##                          Partie 3                            ###
@@ -118,4 +125,4 @@ for etudiants in liste_etudiants :
 #
 # Une fois cette liste de dictionnaire obtenue, imprimez-la dans le terminal. 
 
-print(dictionnaire_etudiants_final)
+print(dictionnaire_etudiant)

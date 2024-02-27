@@ -15,7 +15,14 @@ liste_id = []           #cette liste va contenir tous les IDs, une seule fois ch
 list_id_duplicata = []  #cette liste va contenir les IDs qui apparaissent plus d'une fois.
 
 def verif_ID(nom_csv:str):
-    pass
+    with open(nom_csv , "r" , encoding='utf-8') as csv_file:
+        csv_reader = csv.reader(csv_file , delimiter=',')
+        next(csv_reader)
+        for personne in csv_reader :
+            if personne[3] not in liste_id:
+                liste_id.append(personne[3])
+            else:
+                list_id_duplicata.append(personne[3])
 
 
 
