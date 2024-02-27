@@ -79,7 +79,7 @@ for etudiants in liste_etudiants :
 #troisième boucle pour les examens
     for note_examen in etudiants[6:9] :
         moyenne_examen += int(note_examen) / 3
-#test pour incrémenter la valeur passation et la valur pas_passe, pour savoir le nombre de personne qui ont passé le cours et qui ne l'ont pas passé
+#test pour incrémenter la valeur passation et la valeur pas_passe, pour savoir le nombre de personne qui ont passé le cours et qui ne l'ont pas passé
     if moyenne_tp >= 60 and moyenne_examen >= 60 :
         passation += 1
         note_final_passe += ((moyenne_examen + moyenne_tp) / 2)
@@ -110,7 +110,7 @@ for etudiants in liste_etudiants :
 
 print(f"Voici le nombre d'étudiants ayant passés : {passation}")
 print(f"Voici la moyenne des étudiants qui ont passées : {round(moyenne_etudiant_passe , 2)}")
-print(f"voici la moyenne de tout les étudiants : {round(moyenne_final_tout / (passation + pas_passe) , 2)}")
+print(f"voici la moyenne de tout les étudiants : {round(moyenne_final_tout / len(liste_etudiants) , 2)}")
 print(f"Voici le taux de succès de la classe : {round(taux_succes , 2)}")
 
 ###################################################################
