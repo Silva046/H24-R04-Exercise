@@ -13,21 +13,20 @@ BASE_URL = 'https://fakerapi.it/api/v1/products?_seed=123'
 
 #  Le but est d'obtenir le 'price' moyen des produits de moins de 100000 qui sont dans la catégorie 3.
 
-
 ### - Q1) Faites une demande de 25 produits 
 
-
-
+res = requests.get(f"{BASE_URL}&_quantity=25")
+reponse = res.json()
 
  
 ##  Q2) Utilisez json.dumps() et sont paramètre indent pour imprimer 
 # la réponse de facon lisible pour l'humain.
 
-
+print(json.dumps(reponse,indent=4))
 
 
 # Q3)  Obtenez la liste des produits à partir de la clé 'data' du dictionnaire obtenu en Q3
-
+donnee = reponse['data']
 
 
 # Q4) On veut faire la moyenne des produits qui sont dans la catégorie 3
@@ -45,7 +44,15 @@ BASE_URL = 'https://fakerapi.it/api/v1/products?_seed=123'
 #      Finalement imprimez le résultat, qui pourrait ressembler à ceci: 
 #            "Parmi les 25 produits que j'ai obtenu, il y a 6 produits dans la catégorie 3 et leur prix moyen est de 12328.94$"
 
+total = 0
+cpt = 0
 
 
+for produits in donnee:
+    if 3 in produits['categories'] and float(produits['price']) < 100000:
+        total += float(produits['price'])
+        cpt += 1
 
+moyenne = total / reponse['total']
 
+print(f"Parmi les {reponse['total']} produits que j'ai obtenu, il y a {cpt} produits dans la catégorie 3 et leurs prix moyen est de {round(moyenne,2)}")

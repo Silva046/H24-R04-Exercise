@@ -3,7 +3,7 @@
 # Fermez et réouvrez Code si nécéssaire
 
 # fakerapi.it/en
-import requests
+import requests as rq
 import json
 
 BASE_URL = 'https://fakerapi.it/api/v1/products?_seed=123'
@@ -14,14 +14,15 @@ BASE_URL = 'https://fakerapi.it/api/v1/products?_seed=123'
 
 # Q1) faire une demande de 1 produit1 (&_quantity=1) et conservez le résultat dans une variable
 
-
+reponse1 = rq.get(f"{BASE_URL}&_quantity=1") 
 
 
 # Q2) Pour travailler avec le résultat de la réponse, il faut le convertire en objet python.
 # L'objet de la classe <Respsonse> retourné par la requests.get() possède la méthode .json() pour faire cela.
 # Transformé la réponse et imprimer le résultat.
 
-
+res = reponse1.json()
+print(res)
 
 
 
@@ -31,7 +32,7 @@ BASE_URL = 'https://fakerapi.it/api/v1/products?_seed=123'
 # d'indentation de la chaine de caractères. Avec le paramètre indent, le string devient lisible pour l'être humain.
 # Utilisé json.dumps() pour imprimer la réponse sous un format lisible par l'humain.
 
-
+print(json.dumps(res, indent=4))
 
 
 #Si on regarde le résultat obtenue à la question 3, on peut voir la structure de la réponse obtenu.
@@ -62,20 +63,21 @@ BASE_URL = 'https://fakerapi.it/api/v1/products?_seed=123'
 # C'est la clef "data" qui contient la liste des produits en réponse à notre requête.
 
 
-
+donnee_reponse = res['data']
+produit_1 = donnee_reponse[0]
 # Q4)  Obtenez le premier élément du dictionnaire avec la clé 'data' dans une variable et imprimez-le
-
+print(produit_1)
 
 #  Donc on obtient quelque chose comme
-# {'id': 1, 'name': 'Blanditiis aut in quia omnis.', 'net_price': 2.15, 'taxes': 22, 'price': '2.62', 'categories': [2, 3, 5]}
-
-
+# {'id': 1, 'name': 'Blanditiis aut in quia omnis.', 'net_price': 2.15, 'taxes': 22, 'price': '2.62', 'categories': [2, 3, 5
 
 #  Q5) Obtenez le prix et changez le en un float
-
+prix = float(produit_1['price'])
 
 #  Q6)  Utilisez l'instruction << in >> pour vérifier si 3 fait partie des valeurs dans la liste categories du produit
+si_3_dans_cat = 3 in produit_1['categories']
 
+print(f"Le produit a le prix de {round(prix,2)} et on peut savoir s'il est dans la cat.gorie 3: {si_3_dans_cat}")
 
 #  Q7)  Imprimez le prix et si le produit est dans la catégorie 3 ou non
 #       Quelque chose comme: "Le produit a le prix de 3945.01 et on peut savoir s'il est dans la catégorie 3: False"
