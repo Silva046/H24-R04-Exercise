@@ -11,26 +11,15 @@ liste_noms_groupe1 = [" Anna Jacobs","Bertand Dupier ", "Catherine Deschamps", "
 liste_noms_groupe2 = [" Mienne Lambert", " Justin Tremblay", " Pok Holmes", "Gertrude Dupé", "Harry Potter   ", "   Garry Smother"]
 liste_noms_groupe3 = ["Gard Longe ", " Untel Aknom ", "William Dupont III ", " Steven Stevenson  "]
 
-def correction_espaces_supp(liste):
-    return
+def correction_espaces_supp(liste_nom:list[str]):
+    liste_nom_corrige = []
+    for nom in liste_nom:
+        nom_corrige = nom.strip()
+        liste_nom_corrige.append(nom_corrige)
+    return liste_nom_corrige
 
 
-liste_groupe1_stripped = []
-for nom in liste_noms_groupe1:
-    nom_corriger = nom.strip()
-    liste_groupe1_stripped.append(nom_corriger)
 
-liste_groupe2_stripped = []
-for nom in liste_noms_groupe2:
-    nom_corriger = nom.strip()
-    liste_groupe2_stripped.append(nom_corriger)
-
-liste_groupe3_stripped = []
-for nom in liste_noms_groupe3:
-    nom_corriger = nom.strip()
-    liste_groupe3_stripped.append(nom_corriger) 
-
-
-print(liste_groupe1_stripped)
-print(liste_groupe2_stripped)
-print(liste_groupe3_stripped)
+print(correction_espaces_supp(liste_noms_groupe1))
+print(correction_espaces_supp(liste_noms_groupe2))
+print(correction_espaces_supp(liste_noms_groupe3))
