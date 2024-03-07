@@ -15,9 +15,17 @@ base_url="https://fakestoreapi.com"
 
 # La fonction retournera le nombre d'objets du type désirés pourvu que le type soit products, carts ou user
 
+def request_from(type_objet:str , nb_objet:int=1):
+    if type_objet not in ["products" , "carts" , "users"]:
+        message = (f"{type_objet} is not an object that we have, please enter ; products, carts or user")
+        return message
+    else:
+        demande = requests.get(f"{base_url}/{type_objet}?limit={nb_objet}")
+        return demande.json()
+    
 
 
-
+print(request_from("users",2))
          
 
 # Q2 ajouter une section qui permettra d'utiliser ce fichier en tant que script ou que module
@@ -29,7 +37,9 @@ base_url="https://fakestoreapi.com"
 #   vous devez comparer la valeur de la variable "__name__" et voir si elle correspond au programme principale en cours d'exécution ( le "__main__")
 
 
-
+if __name__ == '__main__':
+    if type(request_from("users")) is list :
+        print("succès !")
 
 
 
