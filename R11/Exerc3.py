@@ -9,7 +9,8 @@ class Voiture:
         self.etat = etat
 
     def imprimer_infos(self):
-        print(f"{self.marque} {self.modele} {self.annee} de couleur {self.couleur}, avec seulement {self.kilo} km. Pour un prix raisonnable de {self.prix}$ dans un état {self.etat}.")
+        #print(f"{self.marque} {self.modele} {self.annee} de couleur {self.couleur}, avec seulement {self.kilo} km. Pour un prix raisonnable de {self.prix}$ dans un état {self.etat}.")
+        print(self.__dict__)
 
 
 toyota = Voiture("Toyota", "Tercel", "1972", "1288888", "rouge", "123", "superbe")
