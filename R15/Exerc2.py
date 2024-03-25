@@ -29,8 +29,13 @@ class Voiture_electrique(Voiture):
                 self.autonomie_actuelle += ((nb_temps_sur_charge / 2)* 40)
         elif self.autonomie_actuelle >= self.autonomie_max:
             self.autonomie_actuelle == self.autonomie_max
+        return print(f"L'auto a été rechargé pendant {nb_temps_sur_charge} minutes, l'autonomie actuelle est de {self.autonomie_actuelle}")
+    
             
         
+audi = Voiture_electrique("Audi","Q8","2021","10","Jaune","68000$",400,30,"Rapide(100kw)")
+
+print(audi.recharger(audi.type_recharge,120))
 
 toyota = Voiture("Toyota", "Tercel", "1972", "1288888", "rouge", "123", "superbe")
 
