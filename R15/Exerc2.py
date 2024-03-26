@@ -19,15 +19,13 @@ class Voiture_electrique(Voiture):
         self.autonomie_actuelle = autonomie_actuelle
         self.type_recharge = type_recharge
     
-    def recharger(self,type_de_recharge,nb_temps_sur_charge):
-        if type_de_recharge == "Niveau 2":
+    def recharger(self,nb_temps_sur_charge):
+        if self.type_recharge == "Niveau 2":
             self.autonomie_actuelle += ((nb_temps_sur_charge / 120)* 40)
-        elif type_de_recharge == "Rapide(100kw)":
+        elif self.type_recharge == "Rapide(100kw)":
             self.autonomie_actuelle += ((nb_temps_sur_charge / 8)* 40)
-        elif type_de_recharge == "Rapide(300kw)":
+        elif self.type_recharge == "Rapide(300kw)":
             self.autonomie_actuelle += ((nb_temps_sur_charge / 2)* 40)
-        elif self.autonomie_actuelle >= self.autonomie_max:
-            self.autonomie_actuelle == self.autonomie_max
         if self.autonomie_actuelle >= self.autonomie_max:
             self.autonomie_actuelle = self.autonomie_max
         return print(f"L'auto a été rechargé pendant {nb_temps_sur_charge} minutes, l'autonomie actuelle est de {self.autonomie_actuelle}")
@@ -36,7 +34,7 @@ class Voiture_electrique(Voiture):
         
 audi = Voiture_electrique("Audi","Q8","2021","10","Jaune","68000$",400,30,"Rapide(100kw)")
 
-print(audi.recharger(audi.type_recharge,120))
+print(audi.recharger(120))
 
 toyota = Voiture("Toyota", "Tercel", "1972", "1288888", "rouge", "123", "superbe")
 
