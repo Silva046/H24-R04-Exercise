@@ -1,0 +1,23 @@
+nom,type,couleur,espace,coût,hypothèque,cout_maison,location_0,location_1,location_2,location_3,location_4,location_hotel
+Mediterranean,rue,Mauve,1,60,30,50,2,10,30,90,160,250
+Baltic,rue,Mauve,3,60,30,50,4,20,60,180,320,450
+Oriental,rue,bleu pâle,6,100,50,50,6,30,90,270,400,550
+Vermont,rue,bleu pâle,8,100,50,50,6,30,90,270,400,550
+Connecticut,rue,bleu pâle,9,120,60,50,8,40,100,300,450,600
+St. Charles,rue,violet,11,140,70,100,10,50,150,450,625,750
+States,rue,violet,13,140,70,100,10,50,150,450,625,750
+Virginia,rue,violet,14,160,80,100,12,60,180,500,700,900
+St. James,rue,orange,16,180,90,100,14,70,200,550,750,950
+Tennessee,rue,orange,18,180,90,100,14,70,200,550,750,950
+New York,rue,orange,19,200,100,100,16,80,220,600,800,1000
+Kentucky,rue,rouge,21,220,110,150,18,90,250,700,875,1050
+Indiana,rue,rouge,23,220,110,150,18,90,250,700,875,1050
+Illinois,rue,rouge,24,240,120,150,20,100,300,750,925,1100
+Atlantic,rue,jaune,26,260,130,150,22,110,330,800,975,1150
+Ventnor,rue,jaune,27,260,130,150,22,110,330,800,975,1150
+Marvin Gardens,rue,jaune,29,280,140,150,24,120,360,850,1025,1200
+Pacific,rue,vert,31,300,150,200,26,130,390,900,1100,1275
+N. Carolina,rue,vert,32,300,150,200,26,130,390,900,1100,1275
+Pennsylvania,rue,vert,34,320,160,200,28,150,450,1000,1200,1400
+Park Place,rue,bleu foncé,37,350,175,200,35,175,500,1100,1300,1500
+Boardwalk,rue,bleu foncé,39,400,200,200,50,200,600,1400,1700,2000

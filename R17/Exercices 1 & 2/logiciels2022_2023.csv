@@ -1,0 +1,32 @@
+﻿Logiciel;Version;Utilisation
+Amazon Corretto;x64 8.332.08.1;info-prog
+Cisco Packet Tracer;8.1.1;info-réseau
+Docker + WSL 2;4.7.1;info-réseau
+dotNET Framework SDK;6.0.6;info-prog
+Filezilla;3.60.1;info-prog
+Flutter;2.0.2;info-prog
+GIMP;2.10.32;info
+Git;2.36.0;info
+Git Kraken;8.6.0;info
+GNS3;2.2.33;info-réseau
+GreenShot;1.2.10.6;info-réseau
+Heroku CLI;7.53.0;info-prog
+JetBrains Toolbox;4.2.1;info
+Mangement Studio (SQL Svr);2019 Express;info-prog
+Microsoft SQL Server;18.9.1;info-prog
+Microsoft Visio Pro;plus récent;info
+Microsoft Visual Studio;2022(17.2);info-prog
+MobaXterm;plus récent;info-réseau
+MySQL Workbench;8.0.26 CE;info-prog
+Node.js;LTS (16.15.1);info-prog
+Angular-CLI;plus récent;info-prog
+OpenVPN connect (client);plus récent;info-réseau
+Postman;9.8.2-52;info-prog
+PowerShell 5.1 (config);Exécuter le script de configuration;info-réseau
+PowerShell 7 (Core);7.2.2;info-réseau
+Putty;0.77;info-réseau
+Python;3.10.4;info-réseau
+Visual Studio Code;1.66.2;Info
+VMware Workstation Pro;16.2.3;info
+Windows Terminal;1.13.11431.0;info-réseau
+Wireshark;3.6.6;info-réseau

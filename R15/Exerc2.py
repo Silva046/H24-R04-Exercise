@@ -18,8 +18,8 @@ class Voiture_electrique(Voiture):
     def __init__(self, marque, modele, annee, kilo, couleur, prix, autonomie_max, type_recharge, etat="neuf"):
         super().__init__(marque, modele, annee, kilo, couleur, prix, etat)
         self.autonomie_max = autonomie_max
-        self.autonomie_actuelle = random.randint(0,400)
         self.type_recharge = type_recharge
+        self.autonomie_actuelle = random.randint(0,self.autonomie_max)
     
     def recharger(self,nb_temps_sur_charge):
         if self.type_recharge == "Niveau 2":
