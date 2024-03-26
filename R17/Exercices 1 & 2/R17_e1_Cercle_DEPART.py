@@ -19,4 +19,26 @@
 class Cercle:
     def __init__(self, rayon):
         self._rayon = rayon
+    @property
+    def rayon(self):
+        return self._rayon
+    @rayon.setter
+    def rayon(self,rayon):
+        if self._rayon > 0:
+            self._rayon = rayon
+    @rayon.deleter
+    def rayon(self):
+        self._rayon = 0
+
+
+circle = Cercle(45)
+
+print(circle.rayon)
+
+circle.rayon = 50
+print(circle.rayon)
+
+del circle.rayon
+print(circle.rayon)
+
 
