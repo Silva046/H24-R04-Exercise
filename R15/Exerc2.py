@@ -20,15 +20,16 @@ class Voiture_electrique(Voiture):
         self.type_recharge = type_recharge
     
     def recharger(self,type_de_recharge,nb_temps_sur_charge):
-        if self.autonomie_actuelle < self.autonomie_max:
-            if type_de_recharge == "Niveau 2":
-                self.autonomie_actuelle += ((nb_temps_sur_charge / 120)* 40)
-            elif type_de_recharge == "Rapide(100kw)":
-                self.autonomie_actuelle += ((nb_temps_sur_charge / 8)* 40)
-            elif type_de_recharge == "Rapide(300kw)":
-                self.autonomie_actuelle += ((nb_temps_sur_charge / 2)* 40)
+        if type_de_recharge == "Niveau 2":
+            self.autonomie_actuelle += ((nb_temps_sur_charge / 120)* 40)
+        elif type_de_recharge == "Rapide(100kw)":
+            self.autonomie_actuelle += ((nb_temps_sur_charge / 8)* 40)
+        elif type_de_recharge == "Rapide(300kw)":
+            self.autonomie_actuelle += ((nb_temps_sur_charge / 2)* 40)
         elif self.autonomie_actuelle >= self.autonomie_max:
             self.autonomie_actuelle == self.autonomie_max
+        if self.autonomie_actuelle >= self.autonomie_max:
+            self.autonomie_actuelle = self.autonomie_max
         return print(f"L'auto a été rechargé pendant {nb_temps_sur_charge} minutes, l'autonomie actuelle est de {self.autonomie_actuelle}")
     
             
