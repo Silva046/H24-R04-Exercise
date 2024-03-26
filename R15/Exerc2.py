@@ -1,3 +1,5 @@
+import random
+
 class Voiture:
     def __init__(self, marque, modele, annee, kilo, couleur, prix, etat="neuf"):
         self.marque = marque
@@ -13,10 +15,10 @@ class Voiture:
         print(self.__dict__)
 
 class Voiture_electrique(Voiture):
-    def __init__(self, marque, modele, annee, kilo, couleur, prix, autonomie_max, autonomie_actuelle, type_recharge, etat="neuf"):
+    def __init__(self, marque, modele, annee, kilo, couleur, prix, autonomie_max, type_recharge, etat="neuf"):
         super().__init__(marque, modele, annee, kilo, couleur, prix, etat)
         self.autonomie_max = autonomie_max
-        self.autonomie_actuelle = autonomie_actuelle
+        self.autonomie_actuelle = random.randint(0,400)
         self.type_recharge = type_recharge
     
     def recharger(self,nb_temps_sur_charge):
@@ -32,9 +34,9 @@ class Voiture_electrique(Voiture):
     
             
         
-audi = Voiture_electrique("Audi","Q8","2021","10","Jaune","68000$",400,30,"Rapide(100kw)")
+audi = Voiture_electrique("Audi","Q8","2021","10","Jaune","68000$",400,"Rapide(100kw)")
 
-print(audi.recharger(120))
+print(audi.recharger(10))
 
 toyota = Voiture("Toyota", "Tercel", "1972", "1288888", "rouge", "123", "superbe")
 
