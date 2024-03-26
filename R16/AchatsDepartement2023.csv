@@ -1,0 +1,21 @@
+﻿Priorité;Item;Modèle;Cie;Qté; Montant (U) ; Montant (T) 
+1;Rack Serveur;PowerEdge R430 ;Dell;1;10 000,00 $ ;10 000,00 $ 
+2;Carte contrôleur;;;1;100,00 $ ;100,00 $ 
+3;Tiroirs pour SSD;;;2;20,00 $ ;40,00 $ 
+4;Cartes Flash 128 Mo;;;28;40,00 $ ;1 120,00 $ 
+5;Carte série PCI;;;80;20,00 $ ;1 600,00 $ 
+6;DB9 to RJ45 Modular Adapter;;;80;5,00 $ ;400,00 $ 
+7;Carte série PCI;;;80;20,00 $ ;1 600,00 $ 
+8;DB9 to RJ45 Modular Adapter;;;80;5,00 $ ;400,00 $ 
+9;Licence Nessus;;;1;4 000,00 $ ;4 000,00 $ 
+10;Câbles réseau 1 pied;;;40;1,00 $ ;40,00 $ 
+11;Câbles réseau 2 pieds;;;80;1,00 $ ;80,00 $ 
+12;Câbles réseau 3 pieds;;;120;1,50 $ ;180,00 $ 
+13;Câbles réseau 5 pieds;;;160;2,00 $ ;320,00 $ 
+14;Ensemble de fabrication pour câble réseau RJ-45 (toolkit);;;15;20,00 $ ;300,00 $ 
+15;"Boite de câble RJ-45 CAT5 de 1000pi
+";;;1;100,00 $ ;100,00 $ 
+16;Connecteurs de plastiques pour câbles rj45;;;5;10,00 $ ;50,00 $ 
+17;Haut-parleur pour les laboratoires de réseau;;;6;40,00 $ ;240,00 $ 
+18;Cartes réseau pour postes du D-0602;;;6;60,00 $ ;360,00 $ 
+;Total;;;;;20 930,00 $ 
