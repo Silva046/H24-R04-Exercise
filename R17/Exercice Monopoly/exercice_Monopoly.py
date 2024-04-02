@@ -1,6 +1,8 @@
 class Terrain:
-    def __init__(self) -> None:
-        pass
+    def __init__(self,nom:str,couleur:str,prix_achat:int,cout_maison:int,prix_location:list,prix_passage:int) -> None:
+        self.nom = nom
+        self.couleur = couleur
+        self
     def __str__(self) -> str:
        pass
    
