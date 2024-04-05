@@ -1,4 +1,3 @@
-import csv
 
 class Terrain:
     def __init__(self,nom,type_terrain,couleur,coût,cout_maison,locations=[]) -> None:

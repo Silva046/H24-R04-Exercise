@@ -9,40 +9,61 @@
 # Tous les ordniateurs ont le même processeur et la même mémoire vive.
 # Certain poste de travail PEUVENT avoir des valeurs différentes de processeur ou de mémoire_vive.
 #       un attribut self.processeur est crée uniquement si une valeur autre que None est passé au constructeur.
-
-
+import os
+import csv
+os.chdir(os.path.dirname(__file__))
 class Ordinateur:
-    processeur=None
-    memoire_vive=None
+    processeur="Ryzen 3600"
+    memoire_vive="16Go"
     def __init__(self,ID, adresseIP) -> None:
-        pass
+        self.ID = ID
+        self.adresseIP = adresseIP
     
     def __str__(self) -> str:
         pass
     
     @classmethod
     def upgrader_processeur(cls, nouveau_processeur) -> None:
-        pass
+        cls.processeur = nouveau_processeur
     
     @classmethod
     def upgrader_memoire(cls, nouvelle_norme) -> None:
-        pass
+        cls.memoire_vive = nouvelle_norme
     
    
 class Poste_de_travail(Ordinateur):
-    def __init__(self,ID, adresseIP, utilisation,processeur=None, memoire_vive=None) -> None:
-        super.__init__(ID, adresseIP)
+    def __init__(self,ID, adresseIP, utilisation,processeur="Ryzen 3600", memoire_vive="16Go") -> None:
+        super().__init__(ID, adresseIP)
         self.liste_logiciels = []
-        pass
+        self.utilisation = utilisation
+        self.__ajout_logiciel()
+        self.processeur = processeur
+        self.memoire_vive = memoire_vive
+
+    def __ajout_logiciel(self):
+            with open("logiciels2022_2023.csv", "r",encoding='utf-8') as csv_file:
+                csv_reader = csv.reader(csv_file,delimiter=";")
+                next(csv_reader)
+                for donnee in csv_reader:
+                    utils = donnee[2]
+                    if self.utilisation == utils:
+                        self.liste_logiciels.append(utils)
     
     # ajoute un str ou list de str à logiciels
     def installer_logiciel(self,logiciel,version) -> None:
-        pass 
+        if logiciel and version not in self.liste_logiciels:
+            self.liste_logiciels.append(logiciel + version)
     
     def desinstaller_logiciel(self,logiciel,version) -> None:
-        pass 
+        if logiciel and version in self.liste_logiciels:
+            self.liste_logiciels.remove(logiciel + version)
     
     def imprimer_liste_logiciels(self) -> None:
-        pass
+        print (self.liste_logiciels)
     
 
+professeur1 = Poste_de_travail('LPFINFOPORT001','192.168.221.21','*',None,"32Go")
+
+réseau = Poste_de_travail('LLBINFO060208','192.168.219.21','info-réseau')
+
+prog = Poste_de_travail('LLBINFO060505','192.168.220.17','info-prog')
