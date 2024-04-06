@@ -46,8 +46,13 @@ class Poste_de_travail(Ordinateur):
                 next(csv_reader)
                 for donnee in csv_reader:
                     utils = donnee[2]
-                    if self.utilisation == utils:
-                        self.liste_logiciels.append(utils)
+                    logiciel_and_version = donnee[0:2]
+                    if self.utilisation == "info-réseau" and utils == "info-réseau" or self.utilisation == "info-réseau" and utils == "info":
+                        self.liste_logiciels.append(logiciel_and_version)
+                    elif self.utilisation == "*":
+                        self.liste_logiciels.append(logiciel_and_version)
+                    elif self.utilisation == "info-prog" and utils == "info-prog" or self.utilisation == "info-prog" and utils == "info":
+                        self.liste_logiciels.append(logiciel_and_version)
     
     # ajoute un str ou list de str à logiciels
     def installer_logiciel(self,logiciel,version) -> None:
