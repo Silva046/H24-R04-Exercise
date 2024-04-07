@@ -57,11 +57,13 @@ class Poste_de_travail(Ordinateur):
     # ajoute un str ou list de str à logiciels
     def installer_logiciel(self,logiciel,version) -> None:
         if logiciel and version not in self.liste_logiciels:
-            self.liste_logiciels.append(logiciel + version)
+            self.liste_logiciels.append(logiciel)
+            self.liste_logiciels.append(version)
     
     def desinstaller_logiciel(self,logiciel,version) -> None:
         if logiciel and version in self.liste_logiciels:
-            self.liste_logiciels.remove(logiciel + version)
+            self.liste_logiciels.remove(logiciel)
+            self.liste_logiciels.remove(version)
     
     def imprimer_liste_logiciels(self) -> None:
         print (self.liste_logiciels)
@@ -72,3 +74,29 @@ professeur1 = Poste_de_travail('LPFINFOPORT001','192.168.221.21','*',None,"32Go"
 réseau = Poste_de_travail('LLBINFO060208','192.168.219.21','info-réseau')
 
 prog = Poste_de_travail('LLBINFO060505','192.168.220.17','info-prog')
+
+
+professeur1.installer_logiciel("Amazon Corretto","x64 8.332.08.1")
+professeur1.desinstaller_logiciel("Amazon Corretto","x64 8.332.08.1")
+
+print(f"logiciel du prof : {len(professeur1.liste_logiciels)}")
+for logiciel in professeur1.liste_logiciels:
+    print(f"    {logiciel}")
+
+print(f"logiciel de réseau : {len(réseau.liste_logiciels)}")
+for logiciel in réseau.liste_logiciels:
+    print(f"    {logiciel}")
+
+print(f"logiciel de prog : {len(prog.liste_logiciels)}")
+for logiciel in prog.liste_logiciels:
+    print(f"    {logiciel}")
+
+
+print(professeur1.memoire_vive)
+print(réseau.memoire_vive)
+print(prog.memoire_vive)
+
+print("On va uprgader tout les postes")
+réseau.upgrader_memoire("32Go")
+prog.upgrader_memoire("32Go")
+print(f"nouvelle mémoire vive : \n {professeur1.memoire_vive} \n {réseau.memoire_vive} \n {prog.memoire_vive}")
