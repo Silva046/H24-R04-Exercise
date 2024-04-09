@@ -8,7 +8,7 @@ voiture1 = Voiture(65000, moteur1, 150)
 voiture2 = Voiture(7000, moteur2, 350)
 voiture3 = Voiture(68500, 500, 100)
 
-print(voiture2.reservoir)
-print(voiture3.reservoir)
+print(voiture2.pReservoir)
+print(voiture3.pReservoir)
 
 
