@@ -7,13 +7,19 @@ class Employe:
         self.salaire = salaire
 
 class Programmeur(Employe):
-    def __init__(self, id: int, nom: str, prenom: str, role: int, salaire: int, _langages:list(str), langages_connu) -> None:
+    def __init__(self, id: int, nom: str, prenom: str, role: int, salaire: int, _langages:list[str]) -> None:
         super().__init__(id, nom, prenom, role, salaire)
-        self._langages = []
-        self.langages_connu = langages_connu
+        self._langages = _langages
+    @property
+    def langages_connus(self):
+        return self._langages
+    @langages_connus.setter
+    def langages(self, nvx_langage):
+        self._langages.append(nvx_langage)
+
 
 class Designer(Employe):
-    def __init__(self, id: int, nom: str, prenom: str, role: int, salaire: int, liste_artefacts:list(str)) -> None:
+    def __init__(self, id: int, nom: str, prenom: str, role: int, salaire: int, liste_artefacts:list) -> None:
         super().__init__(id, nom, prenom, role, salaire)
         self.liste_artefacts = []
 
@@ -21,7 +27,7 @@ class Designer(Employe):
         pass
 
 class Tech_Reseau(Employe):
-    def __init__(self, id: int, nom: str, prenom: str, role: int, salaire: int, liste_interventions:list(str)) -> None:
+    def __init__(self, id: int, nom: str, prenom: str, role: int, salaire: int, liste_interventions:list[str]) -> None:
         super().__init__(id, nom, prenom, role, salaire)
         self.liste_interventions = []
 
