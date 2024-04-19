@@ -1,15 +1,30 @@
-class ErreurFormatIP : pass
-
-
+class ErreurFormatIP(ValueError) : pass
+#temporaire le temps que la fonction vérifier adresse ip soit créer
 class AdresseIP :
-    def __init__(self, pAdresse_ip) -> None: pass
-
+    def __init__(self, pAdresse_ip) -> None: 
+        self._valeur = self.verifier_format_adresse(pAdresse_ip)
+    @property
+    def valeur(self):
+        return self._valeur
+    @valeur.setter
+    def valeur(self,nvx_adresse_ip):
+        self._valeur = self.verifier_format_adresse(nvx_adresse_ip)
 
     def __str__(self) -> str :
-        return self.valeur
+        return self._pAdresse_ip
     # Permet de faire des comparaissons d'égalité entre deux adresses IP
     def __eq__(self, autre_adresse:"AdresseIP") -> bool:
         return self._valeur == autre_adresse._valeur
+    
+    @staticmethod
+    def verifier_format_adresse(adresse_ip:str):
+        adresse_split = adresse_ip.split('.')
+        if len(adresse_split) != 4: return ErreurFormatIP
+        for IP in adresse_split:
+            if 0 >= int(IP) >= 255:
+                return ErreurFormatIP and print("L'adresse IP n'est pas valide")
+        return adresse_ip
+
 
 
 
