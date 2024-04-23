@@ -1,4 +1,4 @@
-import customtkinter as ctk
+import CustomTkinter as ctk
 import tkinter as tk
 import os
 from PIL import ImageTk, Image   #il faut installer pillow  (pip install pillow)
