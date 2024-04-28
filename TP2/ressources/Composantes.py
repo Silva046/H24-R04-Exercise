@@ -8,12 +8,12 @@ if __name__ == '__main__' : from AdresseIP import *
 else :                      from .AdresseIP import *
 
 class Composante(ABC):
-    def __init__(self, nom:str, adresse_ip:AdresseIP, masque_sous_reseau:AdresseIP, adresse_passerelle:AdresseIP, location_physique:str) -> None:
+    def __init__(self, nom:str, adresse_ip:str, masque_sous_reseau:str, adresse_passerelle:str, location_physique:str) -> None:
         super().__init__()
         self._nom = nom
-        self._adresse_ip = adresse_ip(AdresseIP)
-        self._masque_sous_reseau = masque_sous_reseau(AdresseIP)
-        self._adresse_passerelle = adresse_passerelle(AdresseIP)
+        self._adresse_ip = AdresseIP(adresse_ip)
+        self._masque_sous_reseau = AdresseIP(masque_sous_reseau)
+        self._adresse_passerelle = AdresseIP(adresse_passerelle)
         self.location_physique = location_physique
 
     #droit de lecture pour nom
@@ -50,7 +50,7 @@ class Composante(ABC):
             sb.check_output( ['ping', '-n', '1', str(self.adresse_ip.valeur)], stderr=sb.STDOUT )
             return True
         except sb.CalledProcessError: 
-            return False
+            return print(False)
         
     @abstractmethod
     def fermer(self):pass
@@ -59,22 +59,22 @@ class Composante(ABC):
         
 
 class Poste(Composante):
-    def __init__(self, nom:str, adresse_ip:AdresseIP, masque_sous_reseau:AdresseIP, adresse_passerelle:AdresseIP, location_physique:str) -> None:
+    def __init__(self, nom:str, adresse_ip:str, masque_sous_reseau:str, adresse_passerelle:str, location_physique:str) -> None:
         super().__init__(nom, adresse_ip, masque_sous_reseau, adresse_passerelle, location_physique)
         self.est_allume = False
         
     def ouvrir(self):
         # assumez qu'on envoie un signal de s'allumer.... à implanter une autre session.
-        if self.est_allume : print("Station déjà ouvert.")
-        self.est_allume = True
+        if self.est_allume == True: print("Station déjà ouvert.")
+        else: self.est_allume = True
         
     def fermer(self):
         # assumez qu'on envoie un signal de se fermer.... à implanter une autre session.
         if self.est_allume == False: print ("Station déjà éteinte.")
-        self.est_allume = False
+        else: self.est_allume = False
 
 class Routeur(Composante):
-    def __init__(self, nom: str, adresse_ip: AdresseIP, masque_sous_reseau: AdresseIP, adresse_passerelle: AdresseIP, location_physique: str, nb_ports:int, ls_connexions:list[Composante]=[]) -> None:
+    def __init__(self, nom: str, adresse_ip:str, masque_sous_reseau:str, adresse_passerelle:str, location_physique: str, nb_ports:int, ls_connexions:list[Composante]=[]) -> None:
         super().__init__(nom, adresse_ip, masque_sous_reseau, adresse_passerelle, location_physique)
         self._nb_ports = nb_ports
         self._ls_connexions = ls_connexions
@@ -96,6 +96,7 @@ class Routeur(Composante):
     def supprimer_connexion(self, composante_remove:Composante):
         if composante_remove in self._ls_connexions:
             self._ls_connexions.remove(composante_remove)
+        else: print("Ce composant n'est pas dans la liste de connexions")
 
     def fermer(self):
         print("Cette instruction va fermer le courant vers le routeur.")

@@ -11,7 +11,7 @@ class AdresseIP :
         self._valeur = self.verifier_format_adresse(nvx_adresse_ip)
 
     def __str__(self) -> str :
-        return self._pAdresse_ip
+        return self._valeur
     # Permet de faire des comparaissons d'égalité entre deux adresses IP
     def __eq__(self, autre_adresse:"AdresseIP") -> bool:
         return self._valeur == autre_adresse._valeur

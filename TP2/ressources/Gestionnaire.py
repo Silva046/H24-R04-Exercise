@@ -6,9 +6,9 @@ else :                      from .Composantes import *
 
 
 class SousReseau:
-    def __init__(self, _nom:str, _ls_composantes:list[Composante]):
-        self._nom = _nom
-        self._ls_composantes = self._ls_composantes
+    def __init__(self, nom:str, ls_composantes:list[Composante]):
+        self._nom = nom
+        self._ls_composantes = ls_composantes
 
     @property 
     def nom(self):
@@ -43,9 +43,9 @@ class SousReseau:
         else: return print("le composant que vous voulez supprimer n'éxiste pas")
 
 class Gestionnaire:
-    def __init__(self,_nom,_reseau:SousReseau = None):
-        self._nom = _nom
-        self._reseau = _reseau
+    def __init__(self,nom,reseau:SousReseau = None):
+        self._nom = nom
+        self._reseau = reseau
 
     @property
     def nom(self):
@@ -58,12 +58,19 @@ class Gestionnaire:
         resultat_ping = composante_test_connexion.ping()
         return print(f"{composante_test_connexion.nom} : {resultat_ping}")
 
-    def tester_connexion(self):
-        pass
-    def redemarrer_station(self):
-        pass
+    def tester_connexion(self, comp):
+        resultat_ping = bool(SousReseau.ping(comp))
+        print(f"{comp} : {resultat_ping}")
+
+    @staticmethod
+    def redemarrer_station(poste:Poste):
+        poste.fermer()
+        time.sleep(1)
+        poste.ouvrir()
+
     def tester_toutes_les_connexions(self):
-        pass
+        for comp in self._reseau._ls_composantes:
+            self.tester_connexion(comp)
 
 
 if __name__ == "__main__" :
