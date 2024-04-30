@@ -25,7 +25,11 @@ def ajouter_pizza():
 
 #  VOIR ÉNONCÉ               
 def ajouter():
-    pass
+    if chk_pizza._check_state == True:
+        displayBox.insert("0.0", f"{ta_commande}{frm_smarin_choix}")
+    elif chk_smarin._check_state == True:
+        pass
+    
 
     
 window.rowconfigure((0,1,2,3), weight=1, minsize=150)
@@ -84,7 +88,7 @@ smarin14po = ttk.Radiobutton(frm_smarin_choix, text='14"', variable=size_smarin,
 smarin10po.grid(row=5, column=0,padx=2,pady=2,sticky="w")
 smarin14po.grid(row=6, column=0,padx=2,sticky="w")
 
-btn_voir_ajout_smarin = ttk.Button(frm_sousmarin, text="Ajouter")
+btn_voir_ajout_smarin = ttk.Button(frm_sousmarin, text="Ajouter", command=ajouter)
 btn_voir_ajout_smarin.grid(column=2, row=3, sticky='w') 
 
 
@@ -133,7 +137,7 @@ pizza14po = ttk.Radiobutton(frm_pizza_choix, text='14"', variable=size_pizza, va
 pizza7po.grid(row=5, column=0,padx=2,pady=2,sticky="w")
 pizza14po.grid(row=6, column=0,padx=2,sticky="w")
 
-btn_voir_ajout_pizza = ttk.Button(frm_pizza, text="Ajouter")
+btn_voir_ajout_pizza = ttk.Button(frm_pizza, text="Ajouter", command=ajouter)
 btn_voir_ajout_pizza.grid(column=2, row=3, sticky='w') 
 
 
