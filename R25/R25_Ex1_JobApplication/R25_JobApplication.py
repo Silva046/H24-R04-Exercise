@@ -200,18 +200,18 @@ class App(ctk.CTk):
 
     # Voir ÉNONCÉ
     def resumer(self):
-        self.txt_resume.delete(0,-1)
+        self.txt_resume.delete("0.0","end")
         resumer = self.creer_resume()
         return self.txt_resume.insert(resumer)
 
     # Voir ÉNONCÉ
 
     def creer_resume(self):
+        cpt = 0
         for chk in self.list_checkbox:
-            cpt = 0
-            if chk.get() == '1':
+            if chk._check_state == True:
                 cpt += 1
-        return self.ent_nom.insert(f"Salut!")
+        return self.txt_resume.insert("0.0",f"salut {self.ent_nom.get()}\nMerci de votre application chez nous\nVous avez de l'expérience dans {cpt} point(s) sur {len(self.list_checkbox)} possibles.\nL'intérêt principal mentionné étant: {self.cbo_interet.get()}\nNous vous donnerons une réponse sous peu.")
 
 
 
