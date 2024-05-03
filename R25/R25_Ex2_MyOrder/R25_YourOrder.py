@@ -25,21 +25,41 @@ def ajouter_smarin():
             prix_total += 14.99
             prix = 14.99
         elif choix_smarin.get() == "duchef" and size_smarin.get() == "10":
+            prix_total += 15.99
             prix = 15.99
         elif choix_smarin.get() == "steak" or choix_smarin.get() == "pepperoni" and size_smarin.get() == "14":
+            prix_total += 16.99
             prix = 16.99
         elif choix_smarin.get() == "duchef" and size_smarin.get() == "14":
+            prix_total += 17.99
             prix = 17.99
         ta_commande += f"\nUn sous-marin {choix_smarin.get()} {size_smarin.get()}po: {prix}\n"
         #displayBox.insert("0.0", f"{ta_commande}\nUn sous-marin {choix_smarin.get()} {size_smarin.get()}po: {prix}\n    Pour un total de: ???")
 
 #  VOIR ÉNONCÉ               
 def ajouter_pizza():
-    pass
+    prix = 0
+    global ta_commande
+    global prix_total
+    if chk_pizza._check_state == True:
+        if choix_pizza.get() == "nature" or choix_pizza.get() == "végétarienne" and size_pizza.get() == "7":
+            prix_total += 14.99
+            prix = 14.99
+        elif choix_pizza.get() == "toute garnie" and size_pizza.get() == "7":
+            prix_total += 16.99
+            prix = 16.99
+        elif choix_pizza.get() == "nature" or choix_pizza.get() == "végétarienne" and size_pizza.get() == "14":
+            prix_total += 16.99
+            prix = 16.99
+        elif choix_pizza.get() == "toute garnie" and size_pizza.get() == "14":
+            prix_total += 18.99
+            prix = 18.99
+        ta_commande += f"\nUne pizza {choix_pizza.get()} {size_pizza.get()}po: {prix}"
 
 #  VOIR ÉNONCÉ               
 def ajouter():
     ajouter_smarin()
+    ajouter_pizza()
     global ta_commande
     global prix_total
 
