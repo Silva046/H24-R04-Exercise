@@ -54,7 +54,9 @@ class App(customtkinter.CTk):
         # Appelez la méthode lire_equation et capturez le retour
         # Effacez le contenue de self.ecran
         # Affichez le nouveau résultat
-        self.lire_equation()
+        resultat = self.lire_equation()
+        self.ecran.delete("0","end")
+        self.ecran.insert("0", resultat)
 
     # Lis l'équation de gauche à droite, sans priorité d'opération.
     # Retourne le résultat de l'opération
@@ -76,7 +78,7 @@ class App(customtkinter.CTk):
         #           si c'est un "+" ; additionnez le prochain élément de la liste au total
         #           si c'est un "-" ; soustrayez le prochain élément de la liste au total
 
-        return print(totale)
+        return totale
 
     # Efface le contenu de l'écran self.ecran
     def effacer_ecran(self):
