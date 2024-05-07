@@ -28,7 +28,7 @@ class App(customtkinter.CTk):
         self.entry.grid(row=0, padx=(20, 20),  sticky="w")
 
         ## button load
-        self.btn_charger = customtkinter.CTkButton(self.top_frame, text="Sélectionner",height=30)
+        self.btn_charger = customtkinter.CTkButton(self.top_frame, text="Sélectionner",height=30, command=self.selection_fichier)
         self.btn_charger.grid(row=0, padx=(20,20), pady=10,sticky="e")
  
 
@@ -53,7 +53,7 @@ class App(customtkinter.CTk):
         for num, etiquette in enumerate(ligne):
             frame_une_colonne = customtkinter.CTkFrame(self.csv_frame,corner_radius=30,fg_color='white')
             frame_une_colonne.grid(row=0,column=num)
-            element = customtkinter.CTkLabel(frame_une_colonne,text=etiquette,padx=10)
+            element = customtkinter.CTkEntry(frame_une_colonne,text=etiquette,padx=10)
             element.grid(row=0)
             en_tete_valeurs.append(element)
             frames_colonnes.append(frame_une_colonne)
@@ -69,9 +69,9 @@ class App(customtkinter.CTk):
             self.tableau_valeurs = []
             frames_colonnes = self._charger_en_tete(en_tete)
             
-            #for numRow,ligne in enumerate(csv_reader) :
-            #    ligne_valeurs = []
-            #    for numCol,valeur in enumerate(ligne):
+            for numRow,ligne in enumerate(csv_reader) :
+                ligne_valeurs = []
+                for numCol,valeur in enumerate(ligne):
             
 
 
@@ -79,8 +79,10 @@ class App(customtkinter.CTk):
         pass
 
     def selection_fichier(self):
-        pass
-        
+        self.entry.delete("0","end")
+        name_csv = tkinter.filedialog.askopenfilename()
+        self.entry.insert(0,name_csv)
+        self.charger_csv(name_csv)
 
     def selection_enregistrement(self):
         pass
