@@ -2,7 +2,23 @@
 from datetime import date
 import datetime
 
-class Personne:pass
+class Personne:
+    def __init__(self, nom:str, prenom:str, id:int, date_de_naissance:datetime) -> None:
+        self._nom = nom
+        self._prenom = prenom
+        self._id = id
+        self.date_de_naissance = date_de_naissance
+
+    @property
+    def nom(self):
+        return f"{self._nom} {self._prenom}"
+    
+    @property
+    def id(self):
+        return self._id
+    @id.setter
+    def id(self,new_id):
+        self._id = int(new_id)
 
 
 if __name__ == "__main__" :
