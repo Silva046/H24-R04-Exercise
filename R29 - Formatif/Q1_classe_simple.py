@@ -1,6 +1,16 @@
 # Faites la classe Employe telle que décrite dans l'énoncé.
 
-class Employe : pass
+class Employe : 
+    def __init__(self, nom:str, taux:float, temps_plein:bool=True) -> None:
+        self.nom = nom
+        self.taux = taux
+        self.temps_plein = temps_plein
+
+
+    def calculer_salaire(self):
+        if self.temps_plein == True:
+            return round(self.taux * 2000,2)
+        else: return round(self.taux * 1200,2)
 
 
 if __name__ == '__main__' :
