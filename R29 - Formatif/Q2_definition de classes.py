@@ -17,7 +17,7 @@ class Personne:
     def id(self):
         return self._id
     @id.setter
-    def id(self,new_id):
+    def id(self,new_id:int):
         self._id = int(new_id)
 
 
