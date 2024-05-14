@@ -1,5 +1,14 @@
+class ValeurNégative(ValueError): pass
+
+
 class Chien:
     def __init__(self,pNom,pAge,pRace) -> None:
+        if pAge > 20 : raise ValueError("Age est trop élevé")
+        if len(pNom) < 3 : raise ValueError("nom trop court")
+        #if type(pRace) != str : raise TypeError
+        if isinstance(pRace,str) == False : raise TypeError
+        if pAge < 0 : raise ValeurNégative
+
         self.nom = pNom
         self.age = pAge
         self.race = pRace
